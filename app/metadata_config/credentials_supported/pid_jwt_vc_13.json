@@ -1,0 +1,188 @@
+{
+  "eu.europa.ec.eudi.pid_vc_sd_jwt": {
+    "format": "dc+sd-jwt",
+    "scope": "eu.europa.ec.eudi.pid_vc_sd_jwt",
+    "cryptographic_binding_methods_supported": [
+      "jwk",
+      "cose_key"
+    ],
+    "credential_signing_alg_values_supported": [
+      "ES256"
+    ],
+    "issuer_config": {
+      "issuing_authority": "Test PID issuer",
+      "organization_id": "EUDI Wallet Reference Implementation",
+      "validity": 90,
+      "organization_name": "Test PID issuer",
+      "doctype": "eu.europa.ec.eudi.pid.1"
+    },
+    "proof_types_supported": {
+      "jwt": {
+        "proof_signing_alg_values_supported": [
+          "ES256"
+        ]
+      }
+    },
+    "display": [
+      {
+        "name": "PID test (sd-jwt-vc)",
+        "locale": "en",
+        "logo": {
+          "alt_text": "A square figure of a PID",
+          "url": "https://examplestate.com/public/pid.png"
+        }
+      }
+    ],
+    "claims": {
+      "place_of_birth": {
+        "locality": {
+          "mandatory": true,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Birth locality",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "region": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Birth Region",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "country": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Birth Country",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        }
+      },
+      "address": {
+        "street_address": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Street",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "locality": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Locality",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "region": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Region",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "postal_code": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Postal Code",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "country": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Country",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "formatted": {
+          "mandatory": false,
+          "value_type": "string",
+          "display": [
+            {
+              "name": "Full Address",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "house_number": {
+          "mandatory": false,
+          "value_type": "uint",
+          "display": [
+            {
+              "name": "House Number",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        }
+      },
+      "age_equal_or_over": {
+        "16": {
+          "mandatory": false,
+          "value_type": "bool",
+          "display": [
+            {
+              "name": "Age Over 16",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "18": {
+          "mandatory": false,
+          "value_type": "bool",
+          "display": [
+            {
+              "name": "Age Over 18",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        },
+        "65": {
+          "mandatory": false,
+          "value_type": "bool",
+          "display": [
+            {
+              "name": "Age Over 65",
+              "locale": "en"
+            }
+          ],
+          "source": "user"
+        }
+      }
+    }
+  }
+}

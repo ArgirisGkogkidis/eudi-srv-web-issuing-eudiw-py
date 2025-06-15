@@ -3,6 +3,10 @@
     "format": "mso_mdoc",
     "doctype": "eu.europa.ec.eudi.pid.1",
     "scope": "eu.europa.ec.eudi.pid_mdoc",
+    "policy":{
+        "batch_size":50,
+        "one_time_use":true
+     },
     "cryptographic_binding_methods_supported": [
       "jwk",
       "cose_key"
@@ -17,10 +21,10 @@
       1
     ],
     "issuer_config": {
-      "issuing_authority": "Test PID issuer",
+      "issuing_authority": "ΗΔΙΚΑ Α.Ε.",
       "organization_id": "EUDI Wallet Reference Implementation",
       "validity": 90,
-      "organization_name": "Test PID issuer",
+      "organization_name": "ΗΔΙΚΑ Α.Ε.",
       "namespace": "eu.europa.ec.eudi.pid.1"
     },
     "proof_types_supported": {

@@ -196,7 +196,7 @@ def preauth_form():
     cleaned_data.update(
         {
             "version": cfgservice.current_version,
-            "issuing_country": "FC",
+            "issuing_country": "GR",
         }
     )
 
@@ -241,7 +241,7 @@ def preauth_form():
     
         presentation_data[credential].update({"estimated_issuance_date":today.strftime("%Y-%m-%d")})
         presentation_data[credential].update({"estimated_expiry_date":expiry.strftime("%Y-%m-%d")})
-        presentation_data[credential].update({"issuing_country": "FC"}),
+        presentation_data[credential].update({"issuing_country": "GR"}),
         presentation_data[credential].update({"issuing_authority": doctype_config["issuing_authority"]})
         
         if "credential_type" in doctype_config:
@@ -404,13 +404,13 @@ def credentialOfferReq2():
 def generate_preauth_token(data, authorization_details):
     user_id = generate_unique_id()
  
-    data.update({"issuing_country": "FC"})
+    data.update({"issuing_country": "GR"})
 
     form_dynamic_data[user_id] = data.copy()
 
     form_dynamic_data[user_id].update({"expires":datetime.now() + timedelta(minutes=cfgservice.form_expiry)})
 
-    user_id="FC." + user_id
+    user_id="GR." + user_id
 
 
     url = cfgservice.service_url + "pushed_authorizationv2"

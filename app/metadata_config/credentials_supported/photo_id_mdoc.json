@@ -1,21 +1,11 @@
 {
-  "eu.europa.ec.eudi.pid_mdoc":{
+  "eu.europa.ec.eudi.photoid":{
      "format":"mso_mdoc",
-     "doctype":"eu.europa.ec.eudi.pid.1",
-     "scope":"eu.europa.ec.eudi.pid_mdoc",
-     "policy":{
-        "batch_size":50,
-        "one_time_use":true
-     },
+     "doctype":"org.iso.23220.2.photoid.1",
+     "scope":"eu.europa.ec.eudi.photoid",
      "cryptographic_binding_methods_supported":[
         "jwk",
         "cose_key"
-     ],
-     "credential_alg_values_supported":[
-        -7
-     ],
-     "credential_crv_values_supported":[
-        1
      ],
      "credential_signing_alg_values_supported":[
         "ES256"
@@ -29,81 +19,137 @@
      },
      "display":[
         {
-           "name":"PID",
+           "name":"Photo ID",
            "locale":"en",
            "logo":{
-              "uri":"https://examplestate.com/public/pid.png",
-              "alt_text":"A square figure of a PID"
+              "uri":"https://examplestate.com/public/mdl.png",
+              "alt_text":"A square figure of a mDL"
            }
         }
      ],
      "claims":[
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "family_name"
+              "org.iso.23220.photoid.1",
+              "portrait"
            ],
            "mandatory":true,
-           "value_type":"string",
-           "filled_value": "Doe",
+           "value_type":"jpeg",
            "source":"user",
            "display":[
               {
-                 "name":"Family Name(s)",
+                 "name":"Portrait Image",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "given_name"
+              "org.iso.23220.photoid.1",
+              "portrait_capture_date"
            ],
-           "mandatory":true,
-           "value_type":"string",
-           "filled_value": "John",
+           "mandatory":false,
+           "value_type":"full-date",
            "source":"user",
            "display":[
               {
-                 "name":"Given Name(s)",
+                 "name":"Portrait Capture Date",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
+              "family_name_unicode"
+           ],
+           "mandatory":true,
+           "value_type":"string",
+           "source":"user",
+           "display":[
+              {
+                 "name":"Family Name",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
+              "given_name_unicode"
+           ],
+           "mandatory":true,
+           "value_type":"string",
+           "source":"user",
+           "display":[
+              {
+                 "name":"Given Name",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
+              "family_name_latin1"
+           ],
+           "mandatory":false,
+           "value_type":"string",
+           "source":"user",
+           "display":[
+              {
+                 "name":"Family Name",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
+              "given_name_latin1"
+           ],
+           "mandatory":false,
+           "value_type":"string",
+           "source":"user",
+           "display":[
+              {
+                 "name":"Given Name",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
               "birth_date"
            ],
            "mandatory":true,
            "value_type":"full-date",
-           "filled_value": "1995-06-16",
            "source":"user",
            "display":[
               {
-                 "name":"Birth Date",
+                 "name":"Date of Birth",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "age_over_18"
            ],
-           "mandatory":false,
-           "source":"user",
-           "value_type":"bool",
+           "mandatory":true,
+           "source":"issuer",
            "display":[
               {
-                 "name":"Age Over 18",
+                 "name":"Age over 18",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "age_in_years"
            ],
            "mandatory":false,
@@ -117,68 +163,52 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "age_birth_year"
            ],
            "mandatory":false,
            "value_type":"uint",
            "display":[
               {
-                 "name":"Age Year of Birth",
+                 "name":"Birth Year",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "family_name_birth"
+              "org.iso.23220.photoid.1",
+              "birthplace"
            ],
            "mandatory":false,
            "value_type":"string",
            "source":"user",
            "display":[
               {
-                 "name":"Birth Family Name(s)",
+                 "name":"Birthplace",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "given_name_birth"
+              "org.iso.23220.photoid.1",
+              "name_at_birth"
            ],
            "mandatory":false,
            "value_type":"string",
            "source":"user",
            "display":[
               {
-                 "name":"Birth Given Name(s)",
+                 "name":"Family Name at Birth",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "birth_place"
-           ],
-           "mandatory":true,
-           "value_type":"string",
-           "filled_value": "Athens",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Birth Place",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_address"
+              "org.iso.23220.photoid.1",
+              "resident_address_unicode"
            ],
            "mandatory":false,
            "value_type":"string",
@@ -192,38 +222,8 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_country"
-           ],
-           "mandatory":false,
-           "value_type":"string",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Resident Country",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_state"
-           ],
-           "mandatory":false,
-           "value_type":"string",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Resident State",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_city"
+              "org.iso.23220.photoid.1",
+              "resident_city_unicode"
            ],
            "mandatory":false,
            "value_type":"string",
@@ -237,7 +237,7 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "resident_postal_code"
            ],
            "mandatory":false,
@@ -252,57 +252,41 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_street"
+              "org.iso.23220.photoid.1",
+              "resident_country"
            ],
            "mandatory":false,
            "value_type":"string",
            "source":"user",
            "display":[
               {
-                 "name":"Resident Street",
+                 "name":"Resident Country",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "resident_house_number"
+              "org.iso.23220.photoid.1",
+              "resident_city_latin1"
            ],
            "mandatory":false,
            "value_type":"string",
            "source":"user",
            "display":[
               {
-                 "name":"Resident House Number",
+                 "name":"Resident City",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "personal_administrative_number"
-           ],
-           "mandatory":false,
-           "value_type":"string",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Personal Administrative Number",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "sex"
            ],
            "mandatory":false,
            "source":"user",
-           "value_type":"uint",
            "display":[
               {
                  "name":"Sex",
@@ -312,115 +296,22 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "email_address"
-           ],
-           "mandatory":false,
-           "value_type":"string",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Email Address",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "mobile_phone_number"
-           ],
-           "mandatory":false,
-           "value_type":"string",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Mobile Phone Number",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "nationality"
            ],
-           "mandatory":true,
+           "mandatory":false,
            "source":"user",
-           "value_type":"nationalities",
-           "filled_value": [
-             {
-               "country_code": "GR"
-             }
-           ],
+           "value_type":"string",
            "display":[
               {
                  "name":"Nationality",
                  "locale":"en"
               }
-           ],
-           "issuer_conditions":{
-              "cardinality":{
-                 "min":0,
-                 "max":"n"
-              },
-              "nationalities":{
-                 "country_code":{
-                    "mandatory":true,
-                    "value_type":"string",
-                    "source":"user"
-                 }
-              }
-           }
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "issuance_date"
-           ],
-           "mandatory":true,
-           "source":"issuer",
-           "filled_value": "2024-03-20",
-           "display":[
-              {
-                 "name":"Issuance Date",
-                 "locale":"en"
-              }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "expiry_date"
-           ],
-           "mandatory":true,
-           "source":"issuer",
-           "filled_value": "2025-03-20",
-           "display":[
-              {
-                 "name":"Expiry Date",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "issuing_authority"
-           ],
-           "mandatory":true,
-           "source":"issuer",
-           "filled_value": "Test PID issuer",
-           "display":[
-              {
-                 "name":"Issuance Authority",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
               "document_number"
            ],
            "mandatory":false,
@@ -435,58 +326,71 @@
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "trust_anchor"
+              "org.iso.23220.photoid.1",
+              "issuing_subdivision"
            ],
            "mandatory":false,
            "value_type":"string",
            "source":"user",
            "display":[
               {
-                 "name":"Trust Anchor",
+                 "name":"Issuing Subdivision",
                  "locale":"en"
               }
            ]
         },
         {
            "path":[
-              "eu.europa.ec.eudi.pid.1",
+              "org.iso.23220.photoid.1",
+              "issuance_date"
+           ],
+           "mandatory":true,
+           "source":"issuer",
+           "display":[
+              {
+                 "name":"Issuance Date",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
+              "expiry_date"
+           ],
+           "mandatory":true,
+           "source":"issuer",
+           "display":[
+              {
+                 "name":"Expiry Date",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
+              "issuing_authority_unicode"
+           ],
+           "mandatory":true,
+           "source":"issuer",
+           "display":[
+              {
+                 "name":"Issuing Authority",
+                 "locale":"en"
+              }
+           ]
+        },
+        {
+           "path":[
+              "org.iso.23220.photoid.1",
               "issuing_country"
            ],
            "mandatory":true,
            "source":"issuer",
-           "filled_value": "GR",
            "display":[
               {
                  "name":"Issuing Country",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "portrait"
-           ],
-           "mandatory":false,
-           "value_type":"jpeg",
-           "source":"user",
-           "display":[
-              {
-                 "name":"Portrait Image",
-                 "locale":"en"
-              }
-           ]
-        },
-        {
-           "path":[
-              "eu.europa.ec.eudi.pid.1",
-              "issuing_jurisdiction"
-           ],
-           "mandatory":false,
-           "display":[
-              {
-                 "name":"Issuing Jurisdiction",
                  "locale":"en"
               }
            ]
@@ -497,7 +401,7 @@
         "organization_id":"EUDI Wallet Reference Implementation",
         "validity":90,
         "organization_name":"Test PID issuer",
-        "namespace":"eu.europa.ec.eudi.pid.1"
+        "namespace":"org.iso.23220.photoid.1"
      }
   }
 }

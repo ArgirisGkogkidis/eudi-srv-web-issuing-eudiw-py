@@ -49,6 +49,7 @@
         "family_name": {
           "mandatory": true,
           "value_type": "string",
+          "filled_value": "Doe",
           "display": [
             {
               "name": "Family Name(s)",
@@ -60,6 +61,7 @@
         "given_name": {
           "mandatory": true,
           "value_type": "string",
+          "filled_value": "John",
           "display": [
             {
               "name": "Given Name(s)",
@@ -71,6 +73,7 @@
         "birth_date": {
           "mandatory": true,
           "value_type": "full-date",
+          "filled_value": "1990-01-01",
           "display": [
             {
               "name": "Birth Date",
@@ -135,6 +138,7 @@
         "birth_place": {
           "mandatory": true,
           "value_type": "string",
+          "filled_value": "Athens",
           "display": [
             {
               "name": "Birth Place",
@@ -267,6 +271,11 @@
         "nationality": {
           "mandatory": true,
           "value_type": "nationalities",
+          "filled_value": [
+            {
+              "country_code": "GR"
+            }
+          ],
           "display": [
             {
               "name": "Nationality",
@@ -310,6 +319,7 @@
         },
         "issuing_authority": {
           "mandatory": true,
+          "filled_value": "ΗΔΙΚΑ Α.Ε.",
           "display": [
             {
               "name": "Issuance Authority",
@@ -342,6 +352,7 @@
         },
         "issuing_country": {
           "mandatory": true,
+          "filled_value": "GR",
           "display": [
             {
               "name": "Issuing Country",

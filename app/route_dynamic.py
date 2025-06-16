@@ -199,7 +199,7 @@ def dynamic_R1(country):
         + " has been created"
     ) """
 
-    if country == "FC":
+    if country == "GR":
         attributesForm = getAttributesForm(session["credentials_requested"])
         if "user_pseudonym" in attributesForm:
             attributesForm.update({"user_pseudonym": {"type":"string", "filled_value":str(uuid4())}})
@@ -560,7 +560,7 @@ def red():
 
 @dynamic.route("/dynamic_R2", methods=["GET", "POST"])
 def dynamic_R2():
-    """Route acessed by OpenID to get PID attributes from country FC
+    """Route acessed by OpenID to get PID attributes from country GR
 
     Get query parameters:
     + user_id - token to obtain PID attributes
@@ -616,7 +616,7 @@ def dynamic_R2_data_collect(country, user_id):
     user_id -- user identifier needed to get respective attributes
     country -- credential issuing country that user selected
     """
-    if country == "FC":
+    if country == "GR":
         data = form_dynamic_data.get(user_id, "Data not found")
 
         if data == "Data not found":
@@ -814,7 +814,7 @@ def credentialCreation(credential_request, data, country):
         # formatting_functions = document_mappings[doctype]["formatting_functions"]
 
         form_data = {}
-        if country == "FC":
+        if country == "GR":
             form_data = data
 
         elif country == "sample":
@@ -943,7 +943,7 @@ def Dynamic_form():
     """
     session["route"] = "/dynamic/form"
     session["version"] = "0.5"
-    session["country"] = "FC"
+    session["country"] = "GR"
     # if GET
     if request.method == "GET":
         if (
@@ -1158,7 +1158,7 @@ def Dynamic_form():
                     presentation_data[credential].pop("ExpiryDate" + f)
             presentation_data[credential].pop("NumberCategories")
 
-    return render_template("dynamic/form_authorize.html", presentation_data=presentation_data, user_id="FC." + user_id, redirect_url=cfgserv.service_url + "dynamic/redirect_wallet" )
+    return render_template("dynamic/form_authorize.html", presentation_data=presentation_data, user_id="GR." + user_id, redirect_url=cfgserv.service_url + "dynamic/redirect_wallet" )
 
 @dynamic.route("/redirect_wallet", methods=["GET", "POST"])
 def redirect_wallet():

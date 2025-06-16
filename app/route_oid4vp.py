@@ -277,7 +277,7 @@ def getpidoid4vp():
         
         doctype_config = cfgservice.config_doctype["eu.europa.ec.eudi.pseudonym.age_over_18.1"]
 
-        attributesForm.update({"issuing_country": "FC"})
+        attributesForm.update({"issuing_country": "GR"})
         attributesForm.update({"issuing_authority": doctype_config["issuing_authority"]})
         if "credential_type" in doctype_config:
             attributesForm.update({"credential_type":doctype_config["credential_type"] })
@@ -303,7 +303,7 @@ def getpidoid4vp():
         return render_template(
             "dynamic/form_authorize_oid4vp.html",
             attributes=presentation_data,
-            user_id="FC." + user_id,
+            user_id="GR." + user_id,
             redirect_url=cfgservice.service_url + "dynamic/redirect_wallet",
         )
     else:
